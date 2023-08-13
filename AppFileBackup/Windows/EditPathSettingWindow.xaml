@@ -1,0 +1,57 @@
+﻿<Window x:Class="AppFileBackup.Windows.EditPathSettingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppFileBackup.Windows"
+        mc:Ignorable="d"
+        Title="EditPathSettingWindow" Height="292" Width="800" Loaded="Window_Loaded">
+    <Grid x:Name="GridSettingPath">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="99"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Margin="10,0,10,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="142*"/>
+                    <ColumnDefinition Width="441*"/>
+                    <ColumnDefinition Width="103*"/>
+                    <ColumnDefinition Width="94*"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="LabelPath" Content="Путь исходной папки" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="26" Width="126"/>
+                <TextBox x:Name="TextBoxPath" Grid.Column="1" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="385" Height="26"/>
+                <Button x:Name="ButtonSave" Grid.Column="2" Content="Сохранить" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.51,0.56" Height="30" Width="74" Click="ButtonSave_Click"/>
+                <Button x:Name="ButtonClose" Grid.Column="3" Content="Закрыть" HorizontalAlignment="Center" VerticalAlignment="Top" Height="30" Width="74" Click="ButtonClose_Click" Margin="0,10,0,0"/>
+                <Label x:Name="LabelDescription" Content="Комментарий" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" VerticalAlignment="Center"/>
+                <TextBox x:Name="TextBoxDescription" Grid.Column="1" HorizontalAlignment="Center" Margin="0,14,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="385" Height="26"/>
+            </Grid>
+        </Grid>
+        <Grid x:Name="GridSetting" Grid.Row="1" Margin="10,0,10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="27*"/>
+                <ColumnDefinition Width="103*"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="GridInnerSettingPath">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <CheckBox x:Name="CheckBoxSyncData" Content="Синхронизация" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="CheckBoxIsActive" Content="Активный" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" VerticalAlignment="Center"/>
+                <ComboBox x:Name="ComboBoxChangeSettingList" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="120" SelectedIndex="0" DropDownClosed="ComboBoxChangeSettingList_DropDownClosed">
+                    <ComboBoxItem Content="Автозапуск"/>
+                    <ComboBoxItem Content="Фильтры"/>
+                </ComboBox>
+            </Grid>
+            <DataGrid x:Name="DataGridAdvanced" Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=5}" IsReadOnly="True"/>
+        </Grid>
+
+    </Grid>
+</Window>
